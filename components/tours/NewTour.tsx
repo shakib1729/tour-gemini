@@ -42,7 +42,7 @@ const NewTour = () => {
 
       const user = await fetchUserById(userId);
       const currentTokens = user?.tokens;
-      if (currentTokens && currentTokens < 300) {
+      if (currentTokens && currentTokens < 500) {
         toast.error('Token balance too low...');
         return null;
       }

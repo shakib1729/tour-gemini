@@ -24,7 +24,7 @@ const Chat = () => {
       const user = await fetchUserById(userId);
       const currentTokens = user?.tokens;
 
-      if (currentTokens && currentTokens < 100) {
+      if (currentTokens && currentTokens < 250) {
         toast.error('Token balance too low...');
         return;
       }

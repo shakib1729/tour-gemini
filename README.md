@@ -52,11 +52,12 @@
   - Users are notified of the number of tokens available after each request.
   - They can view their available token amount in the profile section also.
 
-<img width="1707" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/2df9ba7e-79bf-49fd-8d19-da052302fe3c">
-<img width="1697" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/a0a4233b-a5a6-440c-bccf-86215463cbd8">
-<img width="1704" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/3618356c-d8c2-47fc-8d47-d5d266cc43df">
-<img width="1692" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/8a92c545-0202-453f-876c-f1bae6b09c4a">
-<img width="1697" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/da835c15-5f4f-4a1a-b01a-1d2afdae4c66">
+<img width="1707" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/4e1fa4ca-d28d-485a-a059-9624275a31bd">
+<img width="1693" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/e07a02a6-a79b-4db0-ab8f-cb956eae5316">
+<img width="1698" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/70b29590-4ff3-4aff-b2eb-d1820e25ed3a">
+<img width="1700" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/986ace57-58c4-417e-911f-9f26ade57244">
+<img width="1695" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/883ee509-5327-4a68-9a25-3dafab9ef6e4">
+
 
 ### Built With
 

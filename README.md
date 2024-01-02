@@ -35,22 +35,22 @@
 ### Project Overview
 
 - Chat with AI:
-    - Users can interact with an AI chatbot, asking questions and receiving responses in a natural language format.
+  - Users can interact with an AI chatbot, asking questions and receiving responses in a natural language format.
 
 - Tour Generation:
-    - Users can enter a place name.
-    - The AI will generate a one-day tour itinerary for that place.
-    - The tour itinerary includes a list of attractions and an image of the place.
+  - Users can enter a place name.
+  - The AI will generate a one-day tour itinerary for that place.
+  - The tour itinerary includes a list of attractions and an image of the place.
 
 - Saved Tours:
-    - Users can view a list of their previously generated tours.
-    - They can also access and view the details of each tour.
+  - Users can view a list of their previously generated tours.
+  - They can also access and view the details of each tour.
 
 - Token Management:
-    - Each user has a limited number of tokens available.
-    - Tokens are consumed with each chat message sent and tour generation request.
-    - Users are notified of the number of tokens consumed in each request.
-    - They can view their available token amount in the profile section.
+  - Each user has a limited number of tokens available.
+  - Tokens are consumed with each chat message sent and tour generation request.
+  - Users are notified of the number of tokens available after each request.
+  - They can view their available token amount in the profile section also.
 
 <img width="1707" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/2df9ba7e-79bf-49fd-8d19-da052302fe3c">
 <img width="1697" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/a0a4233b-a5a6-440c-bccf-86215463cbd8">
@@ -71,30 +71,32 @@ This web app is developed using the following:
 - Additional libraries/packages used:  [Tailwind](https://tailwindcss.com/), [DaisyUI](https://daisyui.com/), [React Query](https://tanstack.com/query/v3/), [React Hot Toast](https://react-hot-toast.com/), [React Icons](https://react-icons.github.io/react-icons/)
 
 ### Workflow:
-The authentication of users is managed by `Clerk`.
+- All communication with the database and external APIs (`Gemini` and `Unsplash`) is handled in `Server Actions`.
+- The authentication of users is managed by `Clerk`.
+
 
 - Chat
-    - The user enters a message and this is passed to the `Gemini`'s `sendMessage` function.
-    - The received response and previous messages are then displayed to the user.
-    - This API internally manages the current chat session context, so we don't need to pass historical messages along with the current message.
-    - The response is restricted to 100 tokens for now.
+  - The user enters a message and this is passed to the `Gemini`'s `sendMessage` function.
+  - The received response and previous messages are then displayed to the user.
+  - This API internally manages the current chat session context, so we don't need to pass historical messages along with the current message.
+  - The response output is restricted to 100 tokens for now.
 
 - New Tour:
-    - User enters a city and its country.
-    - If this place is already present in the database, then the tour is returned from the database directly.
-    - If it is not present in the database, we create a prompt in which we ask `Gemini` to create a one-day tour and return the response in a specific `JSON` format.
-    - If `Gemini` can generate a tour and returns the response in the specified `JSON` format, we call the `Unsplash API` to get the image of this place.
-    - This tour is stored in the database (to avoid any subsequent calls to `Gemini` for the same place).
-    - We also push the current place in the current user's tours list.
+  - User enters a city and its country.
+  - If this place is already present in the database, then the tour is returned from the database directly.
+  - If it is not present in the database, we create a prompt in which we ask `Gemini` to create a one-day tour and return the response in a specific `JSON` format.
+  - If `Gemini` can generate a tour and returns the response in the specified `JSON` format, we call the `Unsplash API` to get the image of this place.
+  - This tour is stored in the database (to avoid any subsequent calls to `Gemini` for the same place).
+  - We also push the current place in the current user's tours list.
 
 - Saved Tours:
-    - From the database, we fetch all the tours generated previously by the current user.
-    - We can also search for a specific place among the previous tours (using `useDeferredValue` to avoid intermediate re-renderings while the user is typing for a place and keeping the UI responsive).
+  - From the database, we fetch all the tours generated previously by the current user.
+  - We can also search for a specific place among the previous tours (using `useDeferredValue` to avoid intermediate re-renderings while the user is typing for a place and keeping the UI responsive).
 
 - Token Management:
-    - Each user is allotted some amount of token on initial login.
-    - Whenever we make a call to the `Gemini API`, we subtract some amount of tokens from the current user.
-    - Tokens are not subtracted when fetching a tour from the database.
+  - Each user is allotted some amount of token on initial login.
+  - Whenever we make a call to the `Gemini API`, we subtract some amount of tokens from the current user.
+  - Tokens are not subtracted when fetching a tour from the database.
 
 ### Database Schema
 <img width="418" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/a01ed89c-57ae-44cd-bb5a-be894f63552b"> <img width="322" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/9ebe0f24-3309-4572-a64b-ab1c9c7c0278">

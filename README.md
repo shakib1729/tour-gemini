@@ -107,7 +107,7 @@ This web app is developed using the following:
 
    <img width="372" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/520b2d82-318e-4256-a727-e03d66c37a1c">
 
-- `_TourToUser` contains 2 columns: the First Column is the ID of the `Tour` and the second column is the ID of the `User`.
+- `_TourToUser` contains 2 columns: the first column is the ID of the `Tour` and the second column is the ID of the `User`.
   <img width="1295" alt="image" src="https://github.com/shakib1729/tour-gemini/assets/39847281/03322afd-f9b2-4a68-a92b-6225408df914">
 
 

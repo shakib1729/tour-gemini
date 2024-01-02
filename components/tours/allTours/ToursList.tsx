@@ -39,7 +39,7 @@ const ToursList = ({ searchValue }: { searchValue: string }) => {
       <div className="flex flex-col items-center mt-4 gap-3">
         <MdErrorOutline size="96px" />
         <h4 className="text-lg block">No tour found...</h4>
-        <h4 className="text-lg">Please create a new tour</h4>
+        {searchValue.length === 0 ? <h4 className="text-lg">Please create a new tour</h4> : null}
       </div>
     );
   }

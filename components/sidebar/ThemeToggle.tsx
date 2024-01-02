@@ -16,16 +16,25 @@ const ThemeToggle = () => {
     }
     return THEMES.LIGHT;
   });
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('tour-gemini-theme', theme);
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   const toggleTheme = () => {
     const newTheme = theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT;
     setTheme(newTheme);
   };
+
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <button className="btn btn-sm btn-outline" onClick={toggleTheme}>
